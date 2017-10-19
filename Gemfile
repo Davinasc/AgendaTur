@@ -7,6 +7,7 @@ end
 
 gem 'rack-cors', :require => 'rack/cors'
 gem 'devise_token_auth'
+gem 'ruby',  '~> 2.4.1'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
