@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 20171018010833) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_type"
-    t.string "qualification"
-    t.decimal "comission", precision: 12, scale: 2
     t.datetime "deleted_at"
-    t.boolean "admin"
     t.string "phone"
+    t.string "qualification"
+    t.decimal "comission", precision: 12, scale: 2, default: "0.0"
+    t.boolean "admin", default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
