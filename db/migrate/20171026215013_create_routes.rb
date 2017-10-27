@@ -1,10 +1,8 @@
 class CreateRoutes < ActiveRecord::Migration[5.1]
   def change
     create_table :routes do |t|
-      t.string :name, :unique
+      t.string :name, null: false, unique: true
       t.decimal :price, precision: 12, scale: 2, null: false
-
-      t.timestamps
     end
   end
 end

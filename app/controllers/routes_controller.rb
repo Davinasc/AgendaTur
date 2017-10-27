@@ -38,6 +38,11 @@ class RoutesController < ApplicationController
     @route.destroy
   end
 
+  def tours
+    route = Route.find(params[:route_id])
+    render json: route.tours
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route

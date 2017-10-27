@@ -10,17 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026171231) do
+ActiveRecord::Schema.define(version: 20171026215018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "routes", force: :cascade do |t|
-    t.string "name"
-    t.string "unique"
+    t.string "name", null: false
     t.decimal "price", precision: 12, scale: 2, null: false
+  end
+
+  create_table "tours", force: :cascade do |t|
+    t.date "date", null: false
+    t.integer "vacancies", null: false
+    t.time "arrival_time", null: false
+    t.time "departure_time", null: false
+    t.bigint "route_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["route_id"], name: "index_tours_on_route_id"
+    t.index ["user_id"], name: "index_tours_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,4 +68,6 @@ ActiveRecord::Schema.define(version: 20171026171231) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "tours", "routes"
+  add_foreign_key "tours", "users"
 end

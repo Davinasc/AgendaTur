@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
           #:confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
 
+  has_many :tours
+
 end
