@@ -40,7 +40,7 @@ class RoutesController < ApplicationController
 
   def tours
     route = Route.find(params[:route_id])
-    render json: route.tours
+    render json: route.tours, include: {guide: [:all]}
   end
 
   private

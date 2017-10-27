@@ -17,11 +17,15 @@ class ToursController < ApplicationController
   # POST /tours
   def create
     @tour = Tour.new(tour_params)
-    
-    if @tour.save
-      render json: @tour, status: :created, location: @tour
+
+    if @tour.user.guide?
+      if @tour.save
+        render json: @tour, status: :created, location: @tour
+      else
+        render json: @tour.errors, status: :unprocessable_entity
+      end
     else
-      render json: @tour.errors, status: :unprocessable_entity
+      render json: {'error': 'User is not a guide'}, status: :unprocessable_entity
     end
   end
 

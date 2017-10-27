@@ -12,4 +12,9 @@ class GuidesController < UsersController
     render json: @guide
   end
 
+  def tours
+    @guide = User.where(user_type: :guide).find(params[:guide_id])
+    render json: @guide.tours, include: {route: [:all]}
+  end
+
 end
