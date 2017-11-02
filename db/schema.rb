@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031223135) do
+ActiveRecord::Schema.define(version: 20171101202938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,20 @@ ActiveRecord::Schema.define(version: 20171031223135) do
   create_table "routes", force: :cascade do |t|
     t.string "name", null: false
     t.decimal "price", precision: 12, scale: 2, null: false
+  end
+
+  create_table "schedulings", force: :cascade do |t|
+    t.decimal "total_price", precision: 12, scale: 2, null: false
+    t.decimal "receive_price", precision: 12, scale: 2
+    t.decimal "voucher_price", precision: 12, scale: 2
+    t.bigint "user_id"
+    t.bigint "tour_id"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_schedulings_on_client_id"
+    t.index ["tour_id"], name: "index_schedulings_on_tour_id"
+    t.index ["user_id"], name: "index_schedulings_on_user_id"
   end
 
   create_table "tours", force: :cascade do |t|
@@ -79,6 +93,9 @@ ActiveRecord::Schema.define(version: 20171031223135) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "schedulings", "clients"
+  add_foreign_key "schedulings", "tours"
+  add_foreign_key "schedulings", "users"
   add_foreign_key "tours", "routes"
   add_foreign_key "tours", "users"
 end

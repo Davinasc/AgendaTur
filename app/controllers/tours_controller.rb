@@ -1,6 +1,6 @@
 class ToursController < ApplicationController
   before_action :set_tour, only: [:show, :update, :destroy]
-  before_action :set_tour2, only: [:route, :guide]
+  before_action :set_tour2, only: [:route, :guide, :schedulings]
 
   # GET /tours
   def index
@@ -18,14 +18,10 @@ class ToursController < ApplicationController
   def create
     @tour = Tour.new(tour_params)
 
-    if @tour.user.guide?
-      if @tour.save
-        render json: @tour, status: :created, location: @tour
-      else
-        render json: @tour.errors, status: :unprocessable_entity
-      end
+    if @tour.save
+      render json: @tour, status: :created, location: @tour
     else
-      render json: {'error': 'User is not a guide'}, status: :unprocessable_entity
+      render json: @tour.errors, status: :unprocessable_entity
     end
   end
 
@@ -49,6 +45,10 @@ class ToursController < ApplicationController
 
   def guide
     render json: @tour2.user
+  end
+  
+  def schedulings
+    render json: @tour2.schedulings, include: {client: [:all], salesman: [:all]}
   end
 
   private

@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :tours
-
+  has_many :schedulings
 end
