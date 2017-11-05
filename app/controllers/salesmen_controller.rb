@@ -12,9 +12,9 @@ class SalesmenController < UsersController
     render json: @salesman, root: :salesman
   end
 
-  def schedulings
+  def sales
     @guide = User.where(user_type: :salesman).find(params[:salesman_id])
-    render json: @guide.schedulings, include: {client: [:all], tour: [:all]}
+    render json: @guide.sales, include: {clients: [:all], tour: [:all]}
   end
 
 end

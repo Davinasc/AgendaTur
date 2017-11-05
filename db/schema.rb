@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101202938) do
+ActiveRecord::Schema.define(version: 20171104155126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,18 +31,23 @@ ActiveRecord::Schema.define(version: 20171101202938) do
     t.decimal "price", precision: 12, scale: 2, null: false
   end
 
-  create_table "schedulings", force: :cascade do |t|
+  create_table "sales", force: :cascade do |t|
     t.decimal "total_price", precision: 12, scale: 2, null: false
     t.decimal "receive_price", precision: 12, scale: 2
     t.decimal "voucher_price", precision: 12, scale: 2
     t.bigint "user_id"
     t.bigint "tour_id"
-    t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["tour_id"], name: "index_sales_on_tour_id"
+    t.index ["user_id"], name: "index_sales_on_user_id"
+  end
+
+  create_table "schedulings", force: :cascade do |t|
+    t.bigint "sale_id"
+    t.bigint "client_id"
     t.index ["client_id"], name: "index_schedulings_on_client_id"
-    t.index ["tour_id"], name: "index_schedulings_on_tour_id"
-    t.index ["user_id"], name: "index_schedulings_on_user_id"
+    t.index ["sale_id"], name: "index_schedulings_on_sale_id"
   end
 
   create_table "tours", force: :cascade do |t|
@@ -82,20 +87,21 @@ ActiveRecord::Schema.define(version: 20171101202938) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_type"
-    t.datetime "deleted_at"
-    t.string "phone"
     t.string "qualification"
     t.decimal "comission", precision: 12, scale: 2, default: "0.0"
+    t.datetime "deleted_at"
     t.boolean "admin", default: false
+    t.string "phone"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "sales", "tours"
+  add_foreign_key "sales", "users"
   add_foreign_key "schedulings", "clients"
-  add_foreign_key "schedulings", "tours"
-  add_foreign_key "schedulings", "users"
+  add_foreign_key "schedulings", "sales"
   add_foreign_key "tours", "routes"
   add_foreign_key "tours", "users"
 end

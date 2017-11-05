@@ -3,7 +3,7 @@ class Tour < ApplicationRecord
 
   belongs_to :route
   belongs_to :user
-  has_many :schedulings
+  has_many :sales
 
   def validate_guide
     if self.user.guide? == false

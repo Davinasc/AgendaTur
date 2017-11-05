@@ -1,6 +1,6 @@
 class ToursController < ApplicationController
   before_action :set_tour, only: [:show, :update, :destroy]
-  before_action :set_tour2, only: [:route, :guide, :schedulings]
+  before_action :set_tour2, only: [:route, :guide, :sales]
 
   # GET /tours
   def index
@@ -47,8 +47,8 @@ class ToursController < ApplicationController
     render json: @tour2.user
   end
   
-  def schedulings
-    render json: @tour2.schedulings, include: {client: [:all], salesman: [:all]}
+  def sales
+    render json: @tour2.sales, include: {clients: [:all], salesman: [:all]}
   end
 
   private
