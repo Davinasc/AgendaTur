@@ -1,0 +1,1243 @@
+{
+	"info": {
+		"name": "agendatur-heroku",
+		"_postman_id": "2c2ebc74-d1d9-513f-498b-e98f6ef8db1a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sales",
+			"description": "",
+			"item": [
+				{
+					"name": "INDEX: list all sales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/sales",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"sales"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW: Find sale by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Jericoacoara\",\n\t\"price\": 100.00\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/sales/5",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"sales",
+								"5"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "TOUR: Find sale tour",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Jericoacoara\",\n\t\"price\": 100.00\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/sales/6/tour",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"sales",
+								"6",
+								"tour"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SALESMAN: Find sale salesman",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Jericoacoara\",\n\t\"price\": 100.00\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/sales/6/salesman",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"sales",
+								"6",
+								"salesman"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CLIENTS: Find sale clients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Jericoacoara\",\n\t\"price\": 100.00\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/sales/5/clients",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"sales",
+								"5",
+								"clients"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE: New sale",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"sale\": {\n\t\t\"user_id\": 1,\n\t\t\"tour_id\": 1,\n\t\t\"total_price\": 70.0,\n\t\t\"voucher_price\": 35.0\n\t},\n\t\"clients\": [\n\t\t\t{\n\t\t\t\t\"name\": \"Joãozim\",\n\t\t\t\t\"email\": \"joaozim@email.com\",\n\t\t\t\t\"phone\": \"(85)988888457\",\n\t\t\t\t\"hotel\": \"LandScape\",\n\t\t\t\t\"apartment\": \"507\",\n\t\t\t\t\"adult\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"name\": \"Davizão\",\n\t\t\t\t\"email\": \"davizao@email.com\",\n\t\t\t\t\"phone\": \"(85)988888457\",\n\t\t\t\t\"hotel\": \"LandScape\",\n\t\t\t\t\"apartment\": \"507\",\n\t\t\t\t\"adult\": true\n\t\t\t}\n\t\t]\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/sales",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"sales"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE: Update sale",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_id\": 2,\n\t\"tour_id\": 3,\n\t\"client_id\": 1,\n\t\"total_price\": 70.0,\n\t\"voucher_price\": 70.0\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/sales/1",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"sales",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DESTROY: Delete sale",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/sales/1",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"sales",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"description": "",
+			"item": [
+				{
+					"name": "INDEX: list all clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/clients",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clients"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW: Find client by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Jericoacoara\",\n\t\"price\": 100.00\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/clients/1",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clients",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE: New client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Joãozim\",\n\t\"email\": \"joaozim@email.com\",\n\t\"phone\": \"(85)988888457\",\n\t\"hotel\": \"LandScape\",\n\t\"apartment\": \"507\",\n\t\"adult\": true\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/clients",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clients"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE: Update client",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Joãozim\",\n\t\"email\": \"joaozim@email.com\",\n\t\"phone\": \"(85)988888457\",\n\t\"hotel\": \"LandScape\",\n\t\"apartment\": \"507\",\n\t\"adult\": true\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/clients/1",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clients",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DESTROY: Delete client",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/routes/1",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"routes",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tours",
+			"description": "",
+			"item": [
+				{
+					"name": "INDEX: list all tours",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/tours",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tours"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW: Find tour by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Jericoacoara\",\n\t\"price\": 100.00\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/tours/1",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tours",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE: New tour",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"date\": \"14/01/1996\",\n\t\"arrival_time\": \"19:05:06\",\n\t\"departure_time\": \"06:00:00\",\n\t\"vacancies\": 30,\n\t\"route_id\": 1,\n\t\"user_id\": 2\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/tours",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tours"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE: Update tour",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Jericoacoara\",\n\t\"price\": 100.00\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/routes/1",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"routes",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "TOURS: Find tour route",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/tours/1/route",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tours",
+								"1",
+								"route"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "TOURS: Find tour guide",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/tours/1/guide",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tours",
+								"1",
+								"guide"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DESTROY: Delete tour",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/tours/1",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tours",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SALES: tour sales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/tours/2/sales",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tours",
+								"2",
+								"sales"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Routes",
+			"description": "",
+			"item": [
+				{
+					"name": "INDEX: list all routes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/routes",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"routes"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW: Find route by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Jericoacoara\",\n\t\"price\": 100.00\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/routes/2",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"routes",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "TOURS: list all tours by route",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/routes/2/tours",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"routes",
+								"2",
+								"tours"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE: New route",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Canoa Quebrada\",\n\t\"price\": 100.00\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/routes",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"routes"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE: Update route",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Jericoacoara\",\n\t\"price\": 100.00\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/routes/1",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"routes",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DESTROY: Delete route",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/routes/2",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"routes",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"description": "",
+			"item": [
+				{
+					"name": "CREATE: New user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"davi-nasc@hotmail.com\",\n\t\"password\": \"davi1234\",\n\t\"phone\": \"(85)989312090\"\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/auth",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE: Sign In",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"davi-nasc@hotmail.com\", \"password\": \"davi1234\"\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/auth/sign_in",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"auth",
+								"sign_in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DESTROY: User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "1Um_lY3VpKKRXkhAZZZeOA"
+							},
+							{
+								"key": "client",
+								"value": "imzEa-IIMCG0WlkgOZMbOQ"
+							},
+							{
+								"key": "uid",
+								"value": "davi6@hotmail.com"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/auth",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "96959771-d6da-4be4-b223-c326dc3a6d77",
+							"name": "deletando usuario",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "1Um_lY3VpKKRXkhAZZZeOA"
+									},
+									{
+										"key": "client",
+										"value": "imzEa-IIMCG0WlkgOZMbOQ"
+									},
+									{
+										"key": "uid",
+										"value": "davi6@hotmail.com"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://192.168.1.13:3000/auth",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"13"
+									],
+									"port": "3000",
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c8891cc1caec0025058f5b64fb94946c\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "Vary",
+									"value": "Origin",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "9fdbc8d6-da21-46fb-84ba-489b2df12f45",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.104666",
+									"name": "X-Runtime",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"responseTime": 111,
+							"body": "{\"status\":\"success\",\"message\":\"Account with UID 'davi6@hotmail.com' has been destroyed.\"}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE: User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "35DPA7OtwjUy3bvluGWLww"
+							},
+							{
+								"key": "client",
+								"value": "5NTp0qkCKxWNrG-LR9yHaw"
+							},
+							{
+								"key": "uid",
+								"value": "davi10@hotmail.com"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 6,\n        \"name\": \"Atualizado\",\n        \"user_type\": \"salesman\",\n        \"qualification\": \"Graduado\",\n        \"comission\": 0\n    }"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/auth",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"auth"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Guides",
+			"description": "",
+			"item": [
+				{
+					"name": "INDEX: List all guides",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/guides",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"guides"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE: New user guide",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Guia-02\",\n\t\"email\": \"guia02@teste.com\",\n\t\"password\": \"davi1234\",\n\t\"user_type\": \"guide\",\n\t\"qualification\": \"Graduado\",\n\t\"phone\": \"(85)989312090\"\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/auth",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW: Guide",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/guides/2",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"guides",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "TOURS: Guide tours",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/guides/2/tours",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"guides",
+								"2",
+								"tours"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Salesmen",
+			"description": "",
+			"item": [
+				{
+					"name": "CREATE: New user salesman",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Vendedor-01\",\n\t\"email\": \"salesman3@teste.com\",\n\t\"password\": \"davi1234\",\n\t\"user_type\": \"salesman\",\n\t\"phone\": \"(85)989312090\"\n}"
+						},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/auth",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INDEX: List all salesmen",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/salesmen",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"salesmen"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SALES: Salesman sales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/salesmen/6/sales",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"salesmen",
+								"6",
+								"sales"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW: Salesman",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://agendatur-api.herokuapp.com/salesmen/4",
+							"protocol": "http",
+							"host": [
+								"agendatur-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"salesmen",
+								"4"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
