@@ -16,7 +16,8 @@ class SalesController < ApplicationController
 
   # POST /sales
   def create
-    @sale = Sale.new(sale_params[:sale])
+
+    @sale = Sale.new(sale_params.except(:clients))
     clients = sale_params[:clients]
     
     if @sale.save
@@ -70,9 +71,9 @@ class SalesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def sale_params
-      sale_params = params.permit({sale: [:total_price, :receive_price, :voucher_price, :user_id, :tour_id]},
+      sale_params = params.permit(:total_price, :receive_price, :voucher_price, :user_id, :tour_id,
         {clients: [:name, :email, :phone, :hotel, :apartment, :adult]}
       )
-      # sale_params.permit!
+      sale_params.permit!
     end
 end
